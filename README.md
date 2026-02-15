@@ -1,4 +1,4 @@
-**Mental Health Sentiment Analysis**
+# Mental Health Sentiment Analysis
 
 This project implements an end-to-end mental health sentiment analysis system using machine learning and deep learning techniques. The system classifies text into mental-health-related categories and assigns a confidence score and risk level to each prediction. The project is designed for academic and research purposes and demonstrates the full pipeline from data preprocessing to model deployment.
 
