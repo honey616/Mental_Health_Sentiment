@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Mental Health Sentiment Analyzer</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f4f6f8;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            background: #ffffff;
+            width: 500px;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 10px rgba(0,0,0,0.1);
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 15px;
+        }
+
+        textarea {
+            width: 100%;
+            height: 120px;
+            padding: 10px;
+            font-size: 14px;
+            border-radius: 6px;
+            border: 1px solid #ccc;
+            resize: none;
+        }
+
+        button {
+            width: 100%;
+            margin-top: 15px;
+            padding: 10px;
+            background: #007bff;
+            color: white;
+            font-size: 16px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #0056b3;
+        }
+
+        .result {
+            margin-top: 20px;
+            padding: 15px;
+            background: #f1f1f1;
+            border-radius: 6px;
+            display: none;
+        }
+
+        .label {
+            font-weight: bold;
+        }
+
+        .disclaimer {
+            margin-top: 10px;
+            font-size: 12px;
+            color: #666;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h2>Mental Health Sentiment Analyzer</h2>
+
+    <textarea id="textInput" placeholder="Enter your thoughts here..."></textarea>
+
+    <button onclick="predict()">Analyze</button>
+
+    <div class="result" id="resultBox">
+        <p><span class="label">Prediction:</span> <span id="prediction"></span></p>
+        <p><span class="label">Confidence:</span> <span id="confidence"></span></p>
+        <p><span class="label">Risk Level:</span> <span id="risk"></span></p>
+    </div>
+
+    <div class="disclaimer">
+        For educational & research purposes only. Not a diagnostic tool.
+    </div>
+</div>
+
+<script>
+    async function predict() {
+        const text = document.getElementById("textInput").value;
+
+        if (!text.trim()) {
+            alert("Please enter some text");
+            return;
+        }
+
+        const response = await fetch("http://127.0.0.1:8000/predict", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                text: text,
+                subreddit: "web"
+            })
+        });
+
+        const data = await response.json();
+
+        document.getElementById("prediction").innerText = data.prediction;
+        document.getElementById("confidence").innerText = data.confidence;
+        document.getElementById("risk").innerText = data.risk_level;
+
+        document.getElementById("resultBox").style.display = "block";
+    }
+</script>
+
+</body>
+</html>
