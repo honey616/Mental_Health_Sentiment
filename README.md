@@ -4,7 +4,7 @@ This project implements an end-to-end mental health sentiment analysis system us
 
 Disclaimer: This project is intended strictly for educational and research use. It is not a diagnostic or clinical tool.
 
-**Project Objectives**
+# Project Objectives
 
 Analyze mental health–related text data
 
@@ -16,7 +16,7 @@ Assign risk levels based on prediction confidence and category
 
 Demonstrate real-time inference using a backend API and frontend interface
 
-**Mental Health Categories**
+# Mental Health Categories
 
 The model predicts the following classes:
 
@@ -36,7 +36,7 @@ ptsd
 
 Each prediction includes a probability score and a derived risk level.
 
-**Technology Stack**
+# Technology Stack
 
 Python 3
 
@@ -52,7 +52,7 @@ HTML, CSS, JavaScript
 
 Scikit-learn (baseline models)
 
-**Project Folder Structure**
+# Project Folder Structure
 MENTAL_HEALTH_SENTIMENT/
 │
 ├── api/
@@ -92,7 +92,7 @@ MENTAL_HEALTH_SENTIMENT/
 ├── .gitignore
 └── README.md
 
-**Model Details**
+# Model Details
 
 Baseline Model: TF-IDF + Logistic Regression
 
@@ -104,11 +104,11 @@ Fine-tuning: Domain-specific mental health text
 
 Output: Predicted label with confidence score
 
-**Risk Level Assignment**
+# Risk Level Assignment
 
 Risk levels are determined using rule-based logic combining prediction confidence and predicted class.
 
-**Condition**	                                      **Risk Level**
+# Condition                                     # Risk Level
 Suicidal content with high confidence	                 High
 Mental health class with high confidence	             High
 Mental health class with medium confidence	             Medium
@@ -116,7 +116,7 @@ Normal or low-confidence prediction	                     Low
 
 This design prioritizes safety-aware interpretation.
 
-**Backend API (FastAPI)**
+# Backend API (FastAPI)
 Start the server
 cd api
 uvicorn app:app --reload
@@ -131,7 +131,7 @@ API documentation is available at:
 
 http://127.0.0.1:8000/docs
 
-**Example API Request**
+# Example API Request
 
 POST /predict
 
@@ -148,7 +148,7 @@ Example response:
   "risk_level": "High"
 }
 
-**Frontend**
+# Frontend
 
 Start the FastAPI backend
 
@@ -159,7 +159,7 @@ frontend/index.html
 
 The frontend allows users to input text and view predictions, confidence scores, and risk levels.
 
-**Model Files and Version Control**
+# Model Files and Version Control
 
 Trained model files are large and are excluded from version control using .gitignore.
 
@@ -171,7 +171,7 @@ Update model paths in api/app.py if required
 
 This follows standard machine learning best practices.
 
-**Evaluation Summary**
+# Evaluation Summary
 
 Baseline and deep learning models were evaluated
 
@@ -181,7 +181,7 @@ The system supports real-time inference
 
 Designed with ethical and reproducibility considerations
 
-**Ethical Considerations**
+# Ethical Considerations
 
 No personally identifiable information is used
 
@@ -191,12 +191,12 @@ Clear disclaimer included
 
 The system is not intended for clinical or diagnostic use
 
-**Author**
+# Author
 
-Shruti Mishra
+Honey Upadhyay
 Post Graduate Diploma in Artificial Intelligence | B.Tech Graduate
-Email: shrutim318@gmail.com
+Email: honeyupadhyay2002@gmail.com
 
-**License**
+# License
 
 This project is intended for educational and research purposes only.
